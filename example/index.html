@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <p style="font-size: 10vmin" id="typed">
+      Confucius (孔夫子),
+      with a preponderance of sesquipadalean terminology
+      frequently fascinated listeners ☺
+      <!-- comments are passed through -->
+      <strong>Embedding strong,
+        <em>then emphasised, and
+          <del>deleted text</del>,
+          entities
+          &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+          and an image 
+          <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+	AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+	9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
+          is</em> no</strong>
+      problem for the tree-walking algorithm.</p>
+  </body>
+
+  <style>
+    #typed {
+      visibility: hidden;
+    }
+    b { color : red; }
+  </style>
+
+  <!-- <script type="module" src="./typewrapper.js"></script> -->
+  <script type="module" language="javascript">
+  import Typewrapper from '../typewrapper.js'
+  window.addEventListener('load', () =>
+    (new Typewrapper('#typed', { typeSpeed: 40 })))
+</script>
+</html>

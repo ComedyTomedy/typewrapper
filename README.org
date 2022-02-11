@@ -1,0 +1,36 @@
+* Typewrapper
+Typewrapper is a simple typing animation library, which word-wraps content to avoid words jumping from the right margin to the left as they're typed.
+
+Currently exports one function, ~typewrapper(node, speed)~, which expects a DOM Node & a speed in milliseconds. Future versions might replace ~speed~ with an object of keyword options.
+
+Created after playing with [[https://github.com/Monogatari/Monogatari][github//Monogatari]].
+
+** Usage
+
+The first argument is a CSS selector for the element you want to be typed out. The second is an optional object of options, although currently only ~typeSpeed~ is available, and defaults to 40.
+
+#+begin_src javascript
+  // javascript
+  import Typewrapper from '../typewrapper.js'
+  new Typewrapper('#typed', { typeSpeed: 40 }))
+#+end_src
+
+Style the element with ~visibility: hidden~ to avoid a flash of unstyled content.
+
+#+begin_src css
+  /* CSS */
+  #typed {
+    visibility: hidden;
+  }
+#+end_src
+
+*** Relationship to typed.js
+
+The API is similar to [[https://github.com/mattboldt/typed.js/][github//typed.js]]. Unlike in typed.js, your element is expected to already contain the content you wish to type.
+
+Typewrapper doesn't currently support any other options than ~typeSpeed~, and doesn't have methods for pausing, restarting etc. The compatibility with typed.js is to make future expansion easy and predictable.
+
+** Roadmap / TODO
+- [ ] Only works for text. Should hide & reveal images too, maybe other types of content?
+  - One way to do this might be to have a different visibility-toggling mechanism for non-text
+  - Then switch between ~insertString()~ and something like ~insertElement()~ based on maybe the class of the wrapping ~<span>~.
